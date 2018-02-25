@@ -1,7 +1,7 @@
 package ex1.enums;
 
 public enum OptionsEnum {
-    DEFAULT("0"),
+    DEFAULT_OPTION("0"),
     IGNORE_DIGITS("2"),
     IGNORE_URLS("4"),
     FIND_REPEAT_WORDS("8"),

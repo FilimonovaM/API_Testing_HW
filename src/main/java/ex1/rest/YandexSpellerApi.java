@@ -1,4 +1,4 @@
-package ex1.soap;
+package ex1.rest;
 
 import beans.YandexSpellerAnswer;
 import com.google.gson.Gson;
@@ -74,7 +74,7 @@ public class YandexSpellerApi {
                 .build();
     }
 
-    public static RequestSpecification baseRequestConfiguration(){
+    public static RequestSpecification baseRequestConfiguration() {
         return new RequestSpecBuilder()
                 .setAccept(ContentType.XML)
                 .addHeader("header", "header.value")

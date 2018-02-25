@@ -3,6 +3,7 @@ package beans;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -54,4 +55,5 @@ public class YandexSpellerAnswer {
         YandexSpellerAnswer rhs = ((YandexSpellerAnswer) other);
         return new EqualsBuilder().append(col, rhs.col).append(code, rhs.code).append(s, rhs.s).append(len, rhs.len).append(pos, rhs.pos).append(row, rhs.row).append(word, rhs.word).isEquals();
     }
+
 }
