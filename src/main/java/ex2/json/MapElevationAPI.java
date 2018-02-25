@@ -1,11 +1,8 @@
 package ex2.json;
 
 import beans.GoogleMapsElevationAPI;
-import beans.YandexSpellerAnswer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import ex2.json.enums.ParametersEnum;
-import ex1.rest.YandexSpellerApi;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -21,9 +18,7 @@ import java.util.List;
 import java.util.Random;
 
 import static ex2.json.enums.LocationsEnum.DEFAULT_LOCATION;
-import static ex2.json.enums.ParametersEnum.KEY;
-import static ex2.json.enums.ParametersEnum.LOCATION;
-import static ex2.json.enums.ParametersEnum.MAP_URI;
+import static ex2.json.enums.ParametersEnum.*;
 
 public class MapElevationAPI {
 
