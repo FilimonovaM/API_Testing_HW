@@ -15,7 +15,7 @@ public class GoogleMapsElevatorTest {
     @Test
     public void simpleAPITest() {
         RestAssured
-                .given()
+                .with()
                 .queryParam(LOC_KEY.loc, DEFAULT_LOCATION.loc)
                 .and().auth().basic(KEY.tag, KEY.param)
                 .accept(ContentType.JSON)

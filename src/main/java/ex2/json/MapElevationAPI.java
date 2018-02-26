@@ -4,6 +4,7 @@ import beans.GoogleMapsElevationAPI;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import io.restassured.RestAssured;
+import io.restassured.authentication.AuthenticationScheme;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.http.ContentType;
@@ -78,9 +79,8 @@ public class MapElevationAPI {
     public static RequestSpecification baseRequestConfiguration() {
         return new RequestSpecBuilder()
                 .setAccept(ContentType.JSON)
-                .addHeader("header", "header.value")
-                .addQueryParam("requestID", new Random().nextLong())
+                .addQueryParam(LOCATION.tag, DEFAULT_LOCATION.loc)
                 .setBaseUri(MAP_URI.param)
-                .build();
+                .build().with().and().auth().basic(KEY.tag, KEY.param);
     }
 }

@@ -2,7 +2,7 @@ package ex2.json.enums;
 
 public enum ParametersEnum {
     MAP_URI("url", "https://maps.googleapis.com/maps/api/elevation/json"),
-    KEY("key", "AIzaSyAV3iY0KGpna2AOetLSpES7PPf3XDwSB2Q"),
+    KEY("key", "AIzaSyBV2nK5nbzLcmMUXfVtLyv7XPl_q_CmVUk"),
     LOCATION("locations", null),
     KEY_ELEVATIONS("elevation", null),
     ERROR("error_message", null),
