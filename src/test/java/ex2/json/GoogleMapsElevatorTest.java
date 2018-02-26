@@ -6,6 +6,7 @@ import org.apache.http.HttpStatus;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
+import static ex2.json.enums.LocationsEnum.DEFAULT_LOCATION;
 import static ex2.json.enums.LocationsEnum.LOC_KEY;
 import static ex2.json.enums.LocationsEnum.SPECIAL_LOCATION;
 import static ex2.json.enums.ParametersEnum.*;
@@ -19,8 +20,8 @@ public class GoogleMapsElevatorTest {
     public void simpleAPITest() {
         RestAssured
                 .given()
-                .queryParam(LOC_KEY.loc, SPECIAL_LOCATION.loc)
-                .and().auth().basic(KEY.name, KEY.param)
+                .queryParam(LOC_KEY.loc, DEFAULT_LOCATION.loc)
+                .and().auth().basic(KEY.tag, KEY.param)
                 .accept(ContentType.JSON)
                 .log().everything()
                 .when()
@@ -29,7 +30,7 @@ public class GoogleMapsElevatorTest {
                 .then()
                 .assertThat().contentType(ContentType.JSON)
                 .assertThat().statusCode(HttpStatus.SC_OK)
-                .assertThat().body(Matchers.containsString("elevation"));
+                .assertThat().body(Matchers.containsString(KEY_ELEVATIONS.tag));
     }
 
     @Test
@@ -49,9 +50,9 @@ public class GoogleMapsElevatorTest {
                 .with()
                 .callApi()
                 .then()
-                .assertThat().body(Matchers.containsString(BAD_STATUS.name))
+                .assertThat().body(Matchers.containsString(BAD_STATUS.tag))
                 .assertThat().body(Matchers.containsString(BAD_STATUS.param))
-                .assertThat().body(Matchers.containsString(ERROR.name));
+                .assertThat().body(Matchers.containsString(ERROR.tag));
     }
 
 

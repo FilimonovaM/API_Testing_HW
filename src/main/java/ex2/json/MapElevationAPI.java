@@ -36,7 +36,7 @@ public class MapElevationAPI {
         }
 
         public MapElevationAPI.ApiBuilder locations() {
-            elevationAPI.params.put(LOCATION.name, DEFAULT_LOCATION.loc);
+            elevationAPI.params.put(LOCATION.tag, DEFAULT_LOCATION.loc);
             return this;
         }
 
@@ -47,13 +47,18 @@ public class MapElevationAPI {
         public RequestSpecification prepareApi() {
             return RestAssured.with()
                     .queryParams(elevationAPI.params)
-                    .and().auth().basic(KEY.name, KEY.param)
+                    .and().auth().basic(KEY.tag, KEY.param)
                     .log().all();
         }
     }
 
     public static MapElevationAPI.ApiBuilder with() {
         MapElevationAPI api = new MapElevationAPI();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return new MapElevationAPI.ApiBuilder(api);
     }
 
