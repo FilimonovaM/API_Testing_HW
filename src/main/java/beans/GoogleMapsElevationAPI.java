@@ -3,7 +3,6 @@ package beans;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 import org.apache.commons.lang.builder.EqualsBuilder;
@@ -18,6 +17,10 @@ public class GoogleMapsElevationAPI {
     @SerializedName("status")
     @Expose
     public String status;
+
+    @SerializedName("error message")
+    @Expose
+    public String errorMessage;
 
     @Override
     public String toString() {

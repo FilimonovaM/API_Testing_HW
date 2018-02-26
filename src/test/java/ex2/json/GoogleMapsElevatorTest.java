@@ -8,8 +8,10 @@ import org.testng.annotations.Test;
 
 import static ex2.json.enums.LocationsEnum.LOC_KEY;
 import static ex2.json.enums.LocationsEnum.SPECIAL_LOCATION;
+import static ex2.json.enums.ParametersEnum.*;
 import static ex2.json.enums.ParametersEnum.KEY;
 import static ex2.json.enums.ParametersEnum.MAP_URI;
+import static org.testng.Assert.assertTrue;
 
 public class GoogleMapsElevatorTest {
 
@@ -40,6 +42,18 @@ public class GoogleMapsElevatorTest {
                 .then()
                 .assertThat().statusCode(HttpStatus.SC_OK);
     }
+
+    @Test
+    public void checkErrorMessage() {
+        MapElevationAPI
+                .with()
+                .callApi()
+                .then()
+                .assertThat().body(Matchers.containsString(BAD_STATUS.name))
+                .assertThat().body(Matchers.containsString(BAD_STATUS.param))
+                .assertThat().body(Matchers.containsString(ERROR.name));
+    }
+
 
     @Test
     public void useBasicRequests() {
